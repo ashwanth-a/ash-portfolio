@@ -91,3 +91,61 @@ html{scroll-behavior:smooth}
 :root[data-theme="light"] .theme-toggle{color:#172033;border-color:#17203330}
 @media(max-width:650px){.theme-toggle{align-self:center;justify-content:center;margin:8px 0 0;width:100%}}
 @media(prefers-reduced-motion:reduce){.theme-toggle{transition:none}}
+
+
+/* Clear, prominent project action buttons */
+.project-card{display:flex;flex-direction:column}
+.project-card .project-link{
+  width:100%;
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin-top:auto;
+  padding:12px 15px;
+  border:1px solid #8af0d277;
+  border-radius:6px;
+  background:linear-gradient(105deg,#8af0d21c,#8caeff12);
+  color:var(--text);
+  font-size:.78rem;
+  font-weight:800;
+  letter-spacing:.1px;
+  transition:transform .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease;
+}
+.project-card .project-link span{
+  width:27px;
+  height:27px;
+  flex:none;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:var(--mint);
+  color:#07110f;
+  font-size:.9rem;
+  transition:transform .22s ease;
+}
+.project-card .project-link:hover{
+  transform:translateY(-3px);
+  border-color:var(--mint);
+  background:linear-gradient(105deg,#8af0d233,#8caeff22);
+  box-shadow:0 8px 24px #8af0d21c;
+}
+.project-card .project-link:hover span{transform:translate(2px,-2px)}
+.project-card .tags{margin-bottom:18px}
+:root[data-theme="light"] .project-card .project-link{
+  color:#172033;
+  border-color:#087f6870;
+  background:linear-gradient(105deg,#087f6812,#3769bd0d);
+}
+:root[data-theme="light"] .project-card .project-link span{background:#087f68;color:#fff}
+:root[data-theme="light"] .project-card .project-link:hover{
+  background:linear-gradient(105deg,#087f6820,#3769bd16);
+  box-shadow:0 8px 24px #087f6815;
+}
+@media(max-width:650px){
+  .project-card .project-link{min-height:46px;padding:11px 13px}
+}
+@media(prefers-reduced-motion:reduce){
+  .project-card .project-link,.project-card .project-link span{transition:none}
+}
