@@ -70,3 +70,17 @@ themeToggle?.addEventListener("click",()=>{
   applyTheme(next);
   try{localStorage.setItem("ashwanth-portfolio-theme",next)}catch(error){}
 });
+
+
+// Make project cards open their primary destination when the card surface is clicked.
+document.querySelectorAll(".project-card[data-card-link]").forEach(card=>{
+  const openCard=()=>{window.location.href=card.dataset.cardLink};
+  card.addEventListener("click",event=>{
+    if(event.target.closest("a,button")) return;
+    openCard();
+  });
+  card.addEventListener("keydown",event=>{
+    if(event.target!==card) return;
+    if(event.key==="Enter"||event.key===" "){event.preventDefault();openCard();}
+  });
+});
