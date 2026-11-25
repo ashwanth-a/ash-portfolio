@@ -32,7 +32,7 @@
       <div class="section-label">01 / PROJECT OVERVIEW</div>
       <div class="two-col">
         <h2>Connecting light-based communication with a practical backup.</h2>
-        <div><p>This project explores a hybrid communication approach in which visible light is used for the primary LiFi data link. When the optical signal drops below a defined threshold, the system is intended to switch to Wi-Fi as a fallback channel.</p><p>The prototype is being developed around ESP32 boards and optical components. The page distinguishes the proposed system design from functionality that is still under development.</p></div>
+        <div><p>This project explores a hybrid communication approach in which visible light is used for the primary LiFi data link. When the optical signal drops below a defined threshold, the system is intended to switch to Wi-Fi as a fallback channel.</p><p>The prototype is being developed around ESP32 boards and optical components. Alongside the visible-light data link, the proposed design includes a separate IR return path: once the receiver has received the complete data, it sends an ACK to the transmitter to confirm successful reception. Wi-Fi is planned as a fallback if the LiFi signal drops below its threshold.</p></div>
       </div>
     </section>
 
@@ -41,7 +41,7 @@
       <div class="cards">
         <article><b>01</b><h3>Explore LiFi</h3><p>Investigate visible-light data transmission using an LED transmitter and photodiode receiver.</p></article>
         <article><b>02</b><h3>Hybrid connectivity</h3><p>Plan Wi-Fi as a fallback when the LiFi signal falls below the selected threshold.</p></article>
-        <article><b>03</b><h3>Reliable feedback</h3><p>Explore an infrared return channel for acknowledgments between the receiver and transmitter.</p></article>
+        <article><b>03</b><h3>Reliable feedback</h3><p>Use an infrared (IR) return channel so the receiver can acknowledge that the transmitted data has been received successfully and completely.</p></article>
       </div>
     </section>
 
@@ -68,7 +68,7 @@
         <article><b>02</b><div><h3>Receive the optical signal</h3><p>A BPW34 photodiode at the receiver detects the light signal; the receiver circuit is being developed around the selected components.</p></div></article>
         <article><b>03</b><div><h3>Monitor link quality</h3><p>The system is designed to monitor the LiFi signal level against a threshold.</p></div></article>
         <article><b>04</b><div><h3>Use Wi-Fi as fallback</h3><p>If the LiFi signal falls below the threshold, the planned logic switches communication to the Wi-Fi backup channel.</p></div></article>
-        <article><b>05</b><div><h3>Explore acknowledgments</h3><p>An infrared return channel is being explored to send acknowledgments from receiver to transmitter.</p></div></article>
+        <article><b>05</b><div><h3>Send an IR acknowledgment</h3><p>After receiving the transmitted data, the receiver sends an acknowledgment (ACK) back to the transmitter through an infrared (IR) link. The ACK indicates that the data has been received successfully and that the complete expected data has arrived.</p></div></article>
       </div>
       <figure class="architecture"><img src="../../assets/hybrid-lifi-wifi/architecture-flowchart.jpg.jpeg" alt="Proposed architecture and working flowchart of the Hybrid LiFi–WiFi Communication System"><figcaption>Proposed architecture and working flowchart — design concept, not a measured test result.</figcaption></figure>
     </section>
