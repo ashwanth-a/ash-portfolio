@@ -149,3 +149,16 @@ html{scroll-behavior:smooth}
 @media(prefers-reduced-motion:reduce){
   .project-card .project-link,.project-card .project-link span{transition:none}
 }
+
+
+/* Whole-card navigation and paired project actions */
+.project-card[data-card-link]{cursor:pointer}
+.project-card[data-card-link]:focus-visible{outline:2px solid var(--mint);outline-offset:4px}
+.project-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:auto}
+.project-actions .project-link{margin-top:0;min-width:0}
+.project-actions .source-link{border-color:var(--line);background:transparent}
+.project-actions .source-link span{background:var(--surface2);color:var(--text)}
+.project-actions .source-link:hover{border-color:var(--mint);background:#8af0d211}
+:root[data-theme="light"] .project-actions .source-link{background:#ffffffa8;border-color:#1720332b}
+:root[data-theme="light"] .project-actions .source-link span{background:#e5edf3;color:#172033}
+@media(max-width:440px){.project-actions{grid-template-columns:1fr}}
