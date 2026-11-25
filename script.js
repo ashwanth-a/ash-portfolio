@@ -23,7 +23,7 @@ if("IntersectionObserver" in window){
         observer.unobserve(entry.target);
       }
     });
-  },{threshold:.12});
+  },{threshold:.08});
   revealItems.forEach(item=>observer.observe(item));
 }else{
   revealItems.forEach(item=>item.classList.add("visible"));
