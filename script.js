@@ -47,3 +47,26 @@ if("IntersectionObserver" in window && observedSections.length){
   },{rootMargin:"-35% 0px -55% 0px"});
   observedSections.forEach(section=>sectionObserver.observe(section));
 }
+
+
+// Theme switcher: dark mode remains the default; selection persists across visits.
+const themeToggle=document.querySelector(".theme-toggle");
+const themeIcon=themeToggle?.querySelector(".theme-icon");
+const themeLabel=themeToggle?.querySelector(".theme-label");
+const root=document.documentElement;
+function applyTheme(theme){
+  const light=theme==="light";
+  if(light) root.setAttribute("data-theme","light");
+  else root.removeAttribute("data-theme");
+  if(themeIcon) themeIcon.textContent=light?"☾":"☼";
+  if(themeLabel) themeLabel.textContent=light?"Dark mode":"Light mode";
+  if(themeToggle) themeToggle.setAttribute("aria-label",light?"Switch to dark mode":"Switch to light mode");
+}
+let savedTheme=null;
+try{savedTheme=localStorage.getItem("ashwanth-portfolio-theme")}catch(error){}
+applyTheme(savedTheme==="light"?"light":"dark");
+themeToggle?.addEventListener("click",()=>{
+  const next=root.getAttribute("data-theme")==="light"?"dark":"light";
+  applyTheme(next);
+  try{localStorage.setItem("ashwanth-portfolio-theme",next)}catch(error){}
+});
